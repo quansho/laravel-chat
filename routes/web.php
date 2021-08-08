@@ -35,7 +35,7 @@ Route::get('/chat', function (){
 
 Route::middleware(['web','auth'])->group(function (){
     Route::prefix('conversations')->name('conversations.')->group(function (){
-        Route::get('/',      [MessageController::class, 'getConversations'])->name('get');
+        Route::get('/',      [MessageController::class, 'getDialogs' ])     ->name('get');
         Route::get('/{id}',  [MessageController::class, 'getMessages'])     ->name('get.messages');
         Route::post('/send', [MessageController::class, 'sendMessage'])     ->name('send.message');
     });

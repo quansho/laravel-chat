@@ -3,7 +3,7 @@
         <label>
             <input v-model="message" @keydown.enter="send"
                    class="rounded-full py-2 pl-3 pr-10 w-full border border-gray-800 focus:border-gray-700 bg-gray-800 focus:bg-gray-900 focus:outline-none text-gray-200 focus:shadow-md transition duration-300 ease-in"
-                   type="text" value="" placeholder="Message..." />
+                   type="text"  placeholder="Message..." />
         </label>
     </div>
 </template>

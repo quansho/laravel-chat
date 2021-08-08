@@ -84,9 +84,9 @@ class Messenger
         return Message::whereConversationId($conversation->id)
             ->where(function ($query) use ($authId, $withId) {
                 $query->where(function ($qr) use ($authId) {
-                    $qr->where('sender_id', $authId);
+                    $qr->where('user_id', $authId);
                 })->orWhere(function ($qr) use ($withId) {
-                    $qr->where('sender_id', $withId);
+                    $qr->where('user_id', $withId);
                 });
             })
             ->latest()

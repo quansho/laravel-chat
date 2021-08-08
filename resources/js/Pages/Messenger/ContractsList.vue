@@ -1,17 +1,17 @@
 <template>
-    <div v-for="(contact,index) in contacts"
-         :key="contact.id"
-         :class="`flex justify-between items-center p-3 hover:bg-gray-800 rounded-lg relative ${index == selected ? 'bg-gray-800' : ''}`"
-         @click="selectContact(contact.id, contact)"
+    <div v-for="(conversation,index) in conversations"
+         :key="conversation.id"
+         :class="`flex justify-between items-center p-3 hover:bg-gray-800 rounded-lg relative ${conversation == selected ? 'bg-gray-800' : ''}`"
+         @click="selectContact(conversation.id, conversation)"
     >
         <div class="w-16 h-16 relative flex flex-shrink-0">
             <img class="shadow-md rounded-full w-full h-full object-cover"
-                 :src="contact.profile_photo_url"
+                 :src="conversation.participant.profile_photo_url"
                  alt=""
             />
         </div>
         <div class="flex-auto min-w-0 ml-4 mr-6 hidden md:block group-hover:block">
-            <p>{{ contact.name }}</p>
+            <p>{{ conversation.participant.name }}</p>
             <div class="flex items-center text-sm text-gray-600">
                 <div class="min-w-0">
                     <p class="truncate">Ok, see you at the subway in a bit.</p>
@@ -26,7 +26,7 @@
 export default {
     name: "ContractsList",
     props: {
-        contacts: {
+        conversations: {
             type: Array,
             default: []
         }
@@ -38,9 +38,9 @@ export default {
         }
     },
     methods: {
-        selectContact(index, contact){
+        selectContact(index, conversation){
             this.selected = index;
-            this.$emit('selected', contact)
+            this.$emit('selected', conversation)
         }
     }
 }

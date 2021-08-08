@@ -1,6 +1,6 @@
 <template>
     <div ref="messageList">
-    <div v-for="message in messages" :key="message.id" :class="`flex flex-row ${message.user_id != contact.id ? 'justify-end' : 'justify-start'}`">
+    <div v-for="message in messages" :key="message.id" :class="`flex flex-row   `">
         <div class="w-8 h-8 relative flex flex-shrink-0 mr-4">
             <img class="shadow-md rounded-full w-full h-full object-cover"
                  src="https://randomuser.me/api/portraits/women/33.jpg"
@@ -21,7 +21,7 @@
 export default {
     name: "MessageList",
     props:{
-        contact:{
+        conversation:{
             type:Object,
         },
         messages:{
@@ -39,7 +39,7 @@ export default {
         }
     },
     watch:{
-        contact(contact){
+        conversation(contact){
             this.scrollToBottom();
         },
         messages(messages){
